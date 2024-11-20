@@ -16,3 +16,20 @@ function Contador() {
 }
 
 setInterval(Contador, 1000);
+
+function clickCoracao(event) {
+    // Recupera o número de cliques armazenados no elemento
+    const element = event.target;
+    let Clicks = parseInt(element.getAttribute('data-click-count') || '0');
+    
+    // Incrementa o número de cliques
+    Clicks++;
+    element.setAttribute('data-click-count', Clicks);
+    
+    // Se for o segundo clique, segue o link
+    if (Clicks === 2) {
+        element.setAttribute('data-click-count', 0); // Reseta o contador
+        return true; // Permite o redirecionamento
+    }
+    event.preventDefault();
+}
