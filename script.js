@@ -20,18 +20,18 @@ setInterval(Contador, 1000);
 //-------------------------------------- Click Duplo Melhorado ------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
-    const ClickDuplo = document.querySelector('.DoubleClick');
+    const doubleClickDiv = document.querySelector('.ClickDuplo');
     const link = document.querySelector('#Href-Condicional');
 
     // Adiciona a classe 'active' ao tocar na div
-    ClickDuplo.addEventListener('touchstart', (event) => {
-        event.preventDefault(); // Evita comportamento padrão
-        ClickDuplo.classList.add('active');
+    doubleClickDiv.addEventListener('touchstart', (event) => {
+        // Não prevenimos mais o comportamento padrão para permitir o toque na div
+        doubleClickDiv.classList.add('active');
     });
 
     // Impede o comportamento padrão do link se a div não estiver ativa
     link.addEventListener('click', (event) => {
-        if (!ClickDuplo.classList.contains('active')) {
+        if (!doubleClickDiv.classList.contains('active')) {
             event.preventDefault(); // Bloqueia o clique no link
         }
     });
