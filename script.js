@@ -22,15 +22,28 @@ setInterval(Contador, 1000);
 const divClickReq = document.querySelector('.ClickReq');
 const linkPagina = document.querySelector('.pagina');
 
+// Contador de cliques
+let clickCount = 0;
+
 // Ativa o hover na div ao tocar nela no celular
 divClickReq.addEventListener('touchstart', (e) => {
   e.preventDefault(); // Impede o comportamento padrão (navegação automática)
-  linkPagina.style.pointerEvents = 'auto'; // Permite o clique no link
-  linkPagina.style.cursor = 'pointer';    // Mostra o cursor como pointer (opcional)
+  
+  clickCount++; // Conta os cliques
+  
+  if (clickCount === 1) {
+    // No primeiro clique, habilita o link mas não navega
+    linkPagina.style.pointerEvents = 'auto';
+    linkPagina.style.cursor = 'pointer';
+  } else if (clickCount === 2) {
+    // No segundo clique, navega para o link
+    window.location.href = linkPagina.href;
+  }
 });
 
-// Desativa o hover quando o toque sai da div
+// Desativa o hover e reseta o contador de cliques quando o toque sai da div
 divClickReq.addEventListener('touchend', () => {
   linkPagina.style.pointerEvents = 'none'; // Desativa o clique no link
   linkPagina.style.cursor = 'default';    // Restaura o cursor (opcional)
+  clickCount = 0; // Reseta o contador de cliques
 });
