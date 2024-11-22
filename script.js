@@ -20,10 +20,13 @@ setInterval(Contador, 1000);
 //-------------------------------------- Click Duplo Melhorado ------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
-    const hoverDiv = document.querySelector('.DoubleClick');
+    const DivSelecionada = document.querySelector('.DoubleClick');
 
-    hoverDiv.addEventListener('touchstart', () => {
-        // Adiciona a classe "active" ao tocar na div
-        hoverDiv.classList.add('active');
+    DivSelecionada.addEventListener('touchstart', (event) => {
+        event.stopPropagation(); // Impede propagação de toque
+        event.preventDefault(); // Evita comportamento padrão
+
+        // Adiciona a classe 'active' ao tocar na div
+        DivSelecionada.classList.add('active');
     });
 });
