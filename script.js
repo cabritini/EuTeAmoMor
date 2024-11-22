@@ -17,19 +17,33 @@ function Contador() {
 
 setInterval(Contador, 1000);
 
-function clickCoracao(event) {
-    // Recupera o número de cliques armazenados no elemento
-    const element = event.target;
-    let Clicks = parseInt(element.getAttribute('data-click-count') || '0');
+//-----------------------------------------Click Duplo--------------------------------------------------------
+        // Variável para armazenar o timer
+        let clickTimeout;
+
+        // Função para lidar com os cliques
+        function ClickDuplo(event) {
+            const element = event.target;
+            let ClickN = parseInt(element.getAttribute('data-click-count') || '0');
+            
+            // Incrementa o contador de cliques
+            ClickN++;
+            element.setAttribute('data-click-count', ClickN);
+
+            if (clickTimeout) {
+                clearTimeout(clickTimeout); // Limpa o timer anterior, se existir
+            }
+
+            if (ClickN === 2) {
+                element.setAttribute('data-click-count', 0); // Reseta o contador
+                return true; // Permite o redirecionamento
+            }
+
+            // Cancela o clique no primeiro e define o timeout para resetar o estado
+            event.preventDefault();
+
+            clickTimeout = setTimeout(() => {
+                element.setAttribute('data-click-count', 0); // Reseta o contador após 2 segundos
+            }, 500); // 2000 ms = 2 segundos
+        }
     
-    // Incrementa o número de cliques
-    Clicks++;
-    element.setAttribute('data-click-count', Clicks);
-    
-    // Se for o segundo clique, segue o link
-    if (Clicks === 2) {
-        element.setAttribute('data-click-count', 0); // Reseta o contador
-        return true; // Permite o redirecionamento
-    }
-    event.preventDefault();
-}
