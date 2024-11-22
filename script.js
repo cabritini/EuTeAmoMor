@@ -18,3 +18,18 @@ function Contador() {
 setInterval(Contador, 1000);
 
 //-------------------------------------- Click Duplo Melhorado ------------------------------------------------------
+// Seleciona o elemento da div e do link
+const divClickReq = document.querySelector('.ClickReq');
+const linkPagina = document.querySelector('.pagina');
+
+// Ativa o hover na div ao tocar nela no celular
+divClickReq.addEventListener('touchstart', () => {
+  linkPagina.style.pointerEvents = 'auto'; // Permite o clique no link
+  linkPagina.style.cursor = 'pointer';    // Mostra o cursor como pointer (opcional)
+});
+
+// Desativa o hover quando o toque sai da div
+divClickReq.addEventListener('touchend', () => {
+  linkPagina.style.pointerEvents = 'none'; // Desativa o clique no link
+  linkPagina.style.cursor = 'default';    // Restaura o cursor (opcional)
+});
