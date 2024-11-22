@@ -241,19 +241,16 @@ a {
 }
 
 /* ----------------------------------- Double Click ---------------------------------------- */
-
-.DoubleClick a {
-    pointer-events: none; /* Desativa o link */
-    color: gray;
-    text-decoration: none;
-}
-
-/* Ativar o link apenas quando a div estiver com hover */
-.DoubleClick:hover a {
-    pointer-events: auto; /* Ativa o link */
-    text-decoration: underline;
-}
-
+.pagina {
+    pointer-events: none;
+    cursor: default;
+  }
+  
+  /* Quando a div estiver em hover, habilitar o link */
+  .ClickReq:hover .pagina {
+    pointer-events: auto;
+    cursor: pointer;
+  }
 
   /*--------------------------------- Responsividade PC ---------------------------------------*/
   
