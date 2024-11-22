@@ -23,7 +23,8 @@ const divClickReq = document.querySelector('.ClickReq');
 const linkPagina = document.querySelector('.pagina');
 
 // Ativa o hover na div ao tocar nela no celular
-divClickReq.addEventListener('touchstart', () => {
+divClickReq.addEventListener('touchstart', (e) => {
+  e.preventDefault(); // Impede o comportamento padrão (navegação automática)
   linkPagina.style.pointerEvents = 'auto'; // Permite o clique no link
   linkPagina.style.cursor = 'pointer';    // Mostra o cursor como pointer (opcional)
 });
