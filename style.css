@@ -164,8 +164,8 @@ a {
 }
 .item {
     width: 80%;
+    margin-top: 1rem;
     display: inline-block;
-    margin-top: 2rem;
     filter: grayscale(100%);
 }
 .item .polaroid:before {
@@ -240,6 +240,19 @@ a {
     transition: all 0.35s;
 }
 
+/* ----------------------------------- Double Click ---------------------------------------- */
+
+.hover-div a {
+    pointer-events: none; /* Desativa o link */
+    color: gray;
+    text-decoration: none;
+}
+
+/* Ativar o link apenas quando a div estiver com hover */
+.hover-div:hover a {
+    pointer-events: auto; /* Ativa o link */
+    text-decoration: underline;
+}
 
 
   /*--------------------------------- Responsividade PC ---------------------------------------*/
