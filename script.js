@@ -17,33 +17,13 @@ function Contador() {
 
 setInterval(Contador, 1000);
 
-//-----------------------------------------Click Duplo--------------------------------------------------------
-        // Variável para armazenar o timer
-        let clickTimeout;
+//-------------------------------------- Click Duplo Melhorado ------------------------------------------------------
 
-        // Função para lidar com os cliques
-        function ClickDuplo(event) {
-            const element = event.target;
-            let ClickN = parseInt(element.getAttribute('data-click-count') || '0');
-            
-            // Incrementa o contador de cliques
-            ClickN++;
-            element.setAttribute('data-click-count', ClickN);
+document.addEventListener("DOMContentLoaded", () => {
+    const hoverDiv = document.querySelector('.DoubleClick');
 
-            if (clickTimeout) {
-                clearTimeout(clickTimeout); // Limpa o timer anterior, se existir
-            }
-
-            if (ClickN === 2) {
-                element.setAttribute('data-click-count', 0); // Reseta o contador
-                return true; // Permite o redirecionamento
-            }
-
-            // Cancela o clique no primeiro e define o timeout para resetar o estado
-            event.preventDefault();
-
-            clickTimeout = setTimeout(() => {
-                element.setAttribute('data-click-count', 0); // Reseta o contador após 2 segundos
-            }, 500); // 2000 ms = 2 segundos
-        }
-    
+    hoverDiv.addEventListener('touchstart', () => {
+        // Adiciona a classe "active" ao tocar na div
+        hoverDiv.classList.add('active');
+    });
+});

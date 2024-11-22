@@ -242,14 +242,14 @@ a {
 
 /* ----------------------------------- Double Click ---------------------------------------- */
 
-.hover-div a {
+.DoubleClick a {
     pointer-events: none; /* Desativa o link */
     color: gray;
     text-decoration: none;
 }
 
 /* Ativar o link apenas quando a div estiver com hover */
-.hover-div:hover a {
+.DoubleClick:hover a {
     pointer-events: auto; /* Ativa o link */
     text-decoration: underline;
 }
