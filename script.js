@@ -18,24 +18,49 @@ function Contador() {
 setInterval(Contador, 1000);
 
 //-------------------------------------- Click Duplo Triste ------------------------------------------------------
-let clickCount = 0;
-let resetTimeout;
+let clickCountA = 0;
+let resetTimeoutA;
 
-function DoubleClick(event) {
-    clickCount++;
+function DoubleClickAlbum(event) {
+    clickCountA++;
 
     // Impede o comportamento padrão do clique (não segue o link ainda)
     event.preventDefault();
 
     // Reseta a contagem após 2 segundos
-    if (clickCount === 1) {
-        resetTimeout = setTimeout(() => {
-            clickCount = 0; // Reseta a contagem após 2 segundos
-        }, 2000);
+    if (clickCountA === 1) {
+        resetTimeoutA = setTimeout(() => {
+            clickCountA = 0; // Reseta a contagem após 2 segundos
+        }, 500);
     }
 
     // Se o link for clicado duas vezes, redireciona
-    if (clickCount === 2) {
+    if (clickCountA === 2) {
+        // Usa currentTarget para garantir que estamos acessando o link correto
+        window.location.href = event.currentTarget.href; // Redireciona para o link
+    }
+}
+
+//------------------------------------------------ Clique duplo cartinha
+
+let clickCountC = 0;
+let resetTimeoutC;
+
+function DoubleClickCartinha(event) {
+    clickCountC++;
+
+    // Impede o comportamento padrão do clique (não segue o link ainda)
+    event.preventDefault();
+
+    // Reseta a contagem após 2 segundos
+    if (clickCountC === 1) {
+        resetTimeoutC = setTimeout(() => {
+            clickCountC = 0; // Reseta a contagem após 2 segundos
+        }, 500);
+    }
+
+    // Se o link for clicado duas vezes, redireciona
+    if (clickCountC === 2) {
         // Usa currentTarget para garantir que estamos acessando o link correto
         window.location.href = event.currentTarget.href; // Redireciona para o link
     }
