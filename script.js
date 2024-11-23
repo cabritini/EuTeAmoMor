@@ -17,33 +17,26 @@ function Contador() {
 
 setInterval(Contador, 1000);
 
-//-------------------------------------- Click Duplo Melhorado ------------------------------------------------------
-// Seleciona o elemento da div e do link
-const divClickReq = document.querySelector('.ClickReq');
-const linkPagina = document.querySelector('.pagina');
-
-// Contador de cliques
+//-------------------------------------- Click Duplo Triste ------------------------------------------------------
 let clickCount = 0;
+let resetTimeout;
 
-// Ativa o hover na div ao tocar nela no celular
-divClickReq.addEventListener('touchstart', (e) => {
-  e.preventDefault(); // Impede o comportamento padrão (navegação automática)
-  
-  clickCount++; // Conta os cliques
-  
-  if (clickCount === 1) {
-    // No primeiro clique, habilita o link mas não navega
-    linkPagina.style.pointerEvents = 'auto';
-    linkPagina.style.cursor = 'pointer';
-  } else if (clickCount === 2) {
-    // No segundo clique, navega para o link
-    window.location.href = linkPagina.href;
-  }
-});
+function DoubleClick(event) {
+    clickCount++;
 
-// Desativa o hover e reseta o contador de cliques quando o toque sai da div
-divClickReq.addEventListener('touchend', () => {
-  linkPagina.style.pointerEvents = 'none'; // Desativa o clique no link
-  linkPagina.style.cursor = 'default';    // Restaura o cursor (opcional)
-  clickCount = 0; // Reseta o contador de cliques
-});
+    // Impede o comportamento padrão do clique (não segue o link ainda)
+    event.preventDefault();
+
+    // Reseta a contagem após 2 segundos
+    if (clickCount === 1) {
+        resetTimeout = setTimeout(() => {
+            clickCount = 0; // Reseta a contagem após 2 segundos
+        }, 2000);
+    }
+
+    // Se o link for clicado duas vezes, redireciona
+    if (clickCount === 2) {
+        // Usa currentTarget para garantir que estamos acessando o link correto
+        window.location.href = event.currentTarget.href; // Redireciona para o link
+    }
+}

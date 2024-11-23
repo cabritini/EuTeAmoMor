@@ -1,10 +1,21 @@
-.a.overlay { width: 100%; height:100%; position: absolute; }
+@font-face {
+    font-family: "FonteApple";
+    src: url(/Fontes/SF-Pro-Display-Regular.otf);
+}
+@font-face {
+    font-family: "FonteEscritaAlex";
+    src: url(/Fontes/AlexBrush-Regular.ttf);
+}
+@font-face {
+    font-family: "Allura";
+    src: url(Fontes/Allura-Regular.ttf);
+}
 
 body {
     background: #f5f5f7;
     color: #1d1d1f;
     font-weight: 400;
-    font-family: "Sf Pro Display";
+    font-family: "FonteApple";
     src: url(/Fontes/SF-Pro-Display-Regular.otf);
 }
 
@@ -16,6 +27,13 @@ a {
     transition-timing-function: cubic-bezier();
 }
 
+*{
+    -webkit-tap-highlight-color: transparent; /* Remove o destaque azul */
+  -webkit-touch-callout: none; /* Desativa o menu de toque em alguns navegadores */
+  user-select: none; /* Impede a seleção de texto */
+}
+
+
 
 
 /*------------------------------ Contador---------------------------------*/
@@ -25,7 +43,7 @@ a {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    font-family: Arial, sans-serif;
+    font-family: "FonteApple";
     font-size: 4vw;
     margin-top: 2rem;
     max-width: 800px;
@@ -82,61 +100,81 @@ a {
 
 /*---------------------------------- Coração --------------------------------------- */
 .heart {
-    width: 100px;
-    height: 100px;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
     background: #ff0239;
     position: relative;
     transform: rotate(-45deg);
-    margin: 50px auto;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
     animation: heart 0.6s linear infinite;
 }
 
 .heart::before,
 .heart::after {
     content: '';
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     background: #ff0239;
     border-radius: 50%;
     position: absolute;
 }
 
 .heart::before {
-    top: -50px; /* Move para cima */
-    left: 0;    /* Alinha com a borda esquerda */
+    top: -30px;
+    left: 0;
 }
 
 .heart::after {
-    left: 50px; /* Move para a direita */
-    top: 0;     /* Alinha com o topo */
+    left: 30px;
+    top: 0;
 }
 
 @keyframes heart {
-    0%{
+    0% {
         transform: rotate(-45deg) scale(1.07);
-        
     }
-    80%{
+    80% {
         transform: rotate(-45deg) scale(1);
     }
-    100%{
+    100% {
         transform: rotate(-45deg) scale(1.08);
     }
-        
-        
 }
-.heart:hover{
+
+.heart:hover {
     animation: heart 0.3s linear infinite;
-    box-shadow:  -10px 10px 50px 10px rgba(255,2,57,1);
+    box-shadow: -10px 10px 134px 40px rgba(255, 0, 64, 0.7);
 }
+
 .heart:hover::after {
-    box-shadow:  10px 10px 50px 10px rgba(255,2,57,1);
+    box-shadow: 10px 10px 134px 40px rgba(255, 0, 64, 0.7);
 }
-.heart:hover::before{
-    box-shadow:  -10px -10px 50px 10px rgba(255,2,57,1);
+
+.heart:hover::before {
+    box-shadow: -10px -10px 134px 40px rgba(255, 0, 64, 0.7);
 }
-.heart, .heart::after, .heart::before {
+
+.heart,
+.heart::after,
+.heart::before {
     transition: all 0.3s ease 0.1s;
+}
+
+/* ----------------------------- I love you ----------------------------------*/
+.ily {
+    font-family: "FonteApple";
+    font-size: 5rem;
+    margin-top: 4rem;
+    text-align: center;
+    transition: color 0.3s ease; /* Transição suave na cor do texto */
+}
+
+/* Mude a cor do texto quando o hover é feito na .heart */
+.heart:hover ~ .ily {
+    color: #ff0239; /* Cor desejada para o texto */
 }
 
 /*----------------------------------- Polaroid ---------------------------- */
@@ -145,25 +183,35 @@ a {
     text-align: center;
     justify-content: center;
     align-items: center;
+    backdrop-filter: none; /* Desfoque inicial: nenhum */
+    transition: backdrop-filter 0.3s ease; /* Animação suave */
 }
+.body:has(.wrapper:hover) {
+    background: yellow;
+    backdrop-filter: blur(10px);
+}
+
 .polaroid {
     background: #fff;
     padding: 0.5rem; /* Reduzi o padding para aumentar a área da imagem */
     box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
 }
 .polaroid > img {
-    max-width: 100%;
-    height: auto;
+    width: 95%;
+    height: 95%;
     display: block; /* Garante que a imagem não tenha espaço abaixo dela */
-    margin: 0; /* Remove qualquer margem */
+    margin: auto;
+    margin-top: 0.75rem;
+
 }
 .caption {
     font-size: 2rem;
     text-align: center;
     line-height: 1.5em;
+    font-family: "FonteApple";
 }
 .item {
-    width: 80%;
+    width: 90%;
     margin-top: 1rem;
     display: inline-block;
     filter: grayscale(100%);
@@ -239,19 +287,122 @@ a {
     box-shadow: 0 1rem 3rem rgba(0,0,0,0.2);
     transition: all 0.35s;
 }
-
-/* ----------------------------------- Double Click ---------------------------------------- */
-.pagina {
-    pointer-events: none;
-    cursor: default;
-  }
-  
-  /* Quando a div estiver em hover, habilitar o link */
-  .ClickReq:hover .pagina {
-    pointer-events: auto;
+/*------------------------------ Cartinha ---------------------------------------- */
+.letter-image {
+    position: relative; /* Agora posiciona-se em relação ao container pai */
+    margin: 0 auto; /* Centraliza horizontalmente no pai */
+    width: 250px;
+    height: 250px;
+    margin-top: 12rem;
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajusta verticalmente para o centro */
     cursor: pointer;
   }
-
+  
+  .animated-mail {
+    position: relative;
+    height: 125px;
+    width: 250px;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  .animated-mail .body {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 125px 250px;
+    border-color: transparent transparent #ffa9ba transparent;
+    z-index: 2;
+  }
+  
+  .animated-mail .top-fold {
+    position: absolute;
+    top: 62.5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 62.5px 125px 0 125px;
+    -webkit-transform-origin: 50% 0%;
+    -webkit-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+    -moz-transform-origin: 50% 0%;
+    -moz-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+    transform-origin: 50% 0%;
+    transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+    border-color: #e45577 transparent transparent transparent;
+    z-index: 2;
+  }
+  
+  .animated-mail .back-fold {
+    position: absolute;
+    bottom: 0;
+    width: 250px;
+    height: 125px;
+    background: #e45577;
+    z-index: 0;
+  }
+  
+  .animated-mail .left-fold {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 62.5px 0 62.5px 125px;
+    border-color: transparent transparent transparent #fa6a83;
+    z-index: 2;
+  }
+  
+  .animated-mail .letter {
+    left: 25px;
+    bottom: 0px;
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    background: white;
+    z-index: 1;
+    overflow: hidden;
+    -webkit-transition: 0.4s 0.2s;
+    -moz-transition: 0.4s 0.2s;
+    transition: 0.4s 0.2s;
+  }
+  
+  .letter-image:hover .animated-mail {
+    transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    -moz-transform: translateY(50px);
+  }
+  
+  .letter-image:hover .animated-mail .top-fold {
+    transition: transform 0.4s, z-index 0.2s;
+    transform: rotateX(180deg);
+    -webkit-transition: transform 0.4s, z-index 0.2s;
+    -webkit-transform: rotateX(180deg);
+    -moz-transition: transform 0.4s, z-index 0.2s;
+    -moz-transform: rotateX(180deg);
+    z-index: 0;
+  }
+  
+  .letter-image:hover .animated-mail .letter {
+    height: 180px;
+  }
+  
+  .letter-image:hover .shadow {
+    width: 250px;
+  }
+  
+  .letter-stamp-inner {
+    font-size: 1.6rem;
+    margin: 5px;
+    font-family: "Allura";
+    font-weight: 550;
+  }
+  
+  
+  
   /*--------------------------------- Responsividade PC ---------------------------------------*/
   
 @media (min-width: 993px) {

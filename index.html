@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para meu amor</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
+    <div class="ily">
+        I <span class="heart"></span> YOU
+    </div>
     <div class="timer-container">
         <div class="bloco">
             <div class="palavra">Dias</div>
@@ -28,20 +30,35 @@
         </div>
     </div>
 
-    <div class="heart"></div>
-
     <div class="wrapper">
         <div class="item">
-            <div class="ClickReq">
-                <a href="nois.html" class="pagina">
-                    <div class="polaroid"><img src="Imagens/FotoDoPeixeQuadrada.jpg">
-                        <div class="caption">Album</div>
-                    </div>
-                </a>
-            </div>
+            <a href="nois.html" onclick="DoubleClick(event)">
+                <div class="polaroid">
+                    <img src="Imagens/FotoDoPeixeQuadrada.jpg">
+                    <div class="caption">Album</div>
+                </div>
+            </a>
         </div>
     </div>
 
+    <a href="cartinhas.html" onclick="DoubleClick(event)">
+        <div class="letter-image">
+            <div class="animated-mail">
+              <div class="back-fold"></div>
+              <div class="letter">
+                <div class="letter-stamp">
+                  <div class="letter-stamp-inner">Cartinhas para meu amor❤️❤️❤️</div>
+                </div>
+              </div>
+              <div class="top-fold"></div>
+              <div class="body"></div>
+              <div class="left-fold"></div>
+            </div>
+          </div>
+    </a>
+
+
 </body>
+
 <script type="text/javascript" src="script.js"></script>
 </html>
