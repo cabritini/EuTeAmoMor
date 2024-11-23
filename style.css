@@ -1,10 +1,10 @@
 @font-face {
-    font-family: "FonteApple";
-    src: url(/Fontes/SF-Pro-Display-Regular.otf);
+    font-family: "Sf-Pro-Display";
+    src: url(Fontes/SF-Pro-Display-Regular.otf);
 }
 @font-face {
     font-family: "FonteEscritaAlex";
-    src: url(/Fontes/AlexBrush-Regular.ttf);
+    src: url(Fontes/AlexBrush-Regular.ttf);
 }
 @font-face {
     font-family: "Allura";
@@ -15,8 +15,7 @@ body {
     background: #f5f5f7;
     color: #1d1d1f;
     font-weight: 400;
-    font-family: "FonteApple";
-    src: url(/Fontes/SF-Pro-Display-Regular.otf);
+    font-family: "Sf-Pro-Display";
 }
 
 a {
@@ -43,7 +42,7 @@ a {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    font-family: "FonteApple";
+    font-family: "Sf-Pro-Display";
     font-size: 4vw;
     margin-top: 2rem;
     max-width: 800px;
@@ -165,7 +164,7 @@ a {
 
 /* ----------------------------- I love you ----------------------------------*/
 .ily {
-    font-family: "FonteApple";
+    font-family: "Sf-Pro-Display";
     font-size: 5rem;
     margin-top: 4rem;
     text-align: center;
@@ -208,7 +207,7 @@ a {
     font-size: 2rem;
     text-align: center;
     line-height: 1.5em;
-    font-family: "FonteApple";
+    font-family: "Sf-Pro-Display";
 }
 .item {
     width: 90%;
