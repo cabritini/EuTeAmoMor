@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "Sf-Pro-Display";
+    src: url(Fontes/SF-Pro-Display-Regular.otf);
+}
+@font-face {
+    font-family: "FonteEscritaAlex";
+    src: url(Fontes/AlexBrush-Regular.ttf);
+}
+@font-face {
+    font-family: "Allura";
+    src: url(Fontes/Allura-Regular.ttf);
+}
+
+body {
+    background: #f5f5f7;
+    color: #1d1d1f;
+    font-weight: 400;
+    font-family: "Sf-Pro-Display";
+}
+
+a {
+    color: currentColor;
+    text-decoration: none;
+    transition-property: transform, color;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier();
+}
+
+*{
+    -webkit-tap-highlight-color: transparent; /* Remove o destaque azul */
+  -webkit-touch-callout: none; /* Desativa o menu de toque em alguns navegadores */
+  user-select: none; /* Impede a seleção de texto */
+}

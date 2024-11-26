@@ -1,0 +1,78 @@
+/*---------------------------------- Coração --------------------------------------- */
+.heart {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background: #ff0239;
+    position: relative;
+    transform: rotate(-45deg);
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    animation: heart 0.6s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    width: 60px;
+    height: 60px;
+    background: #ff0239;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -30px;
+    left: 0;
+}
+
+.heart::after {
+    left: 30px;
+    top: 0;
+}
+
+@keyframes heart {
+    0% {
+        transform: rotate(-45deg) scale(1.07);
+    }
+    80% {
+        transform: rotate(-45deg) scale(1);
+    }
+    100% {
+        transform: rotate(-45deg) scale(1.08);
+    }
+}
+
+.heart:hover {
+    animation: heart 0.3s linear infinite;
+    box-shadow: -10px 10px 134px 40px rgba(255, 0, 64, 0.7);
+}
+
+.heart:hover::after {
+    box-shadow: 10px 10px 134px 40px rgba(255, 0, 64, 0.7);
+}
+
+.heart:hover::before {
+    box-shadow: -10px -10px 134px 40px rgba(255, 0, 64, 0.7);
+}
+
+.heart,
+.heart::after,
+.heart::before {
+    transition: all 0.3s ease 0.1s;
+}
+
+/* ----------------------------- I love you ----------------------------------*/
+.ily {
+    font-family: "Sf-Pro-Display";
+    font-size: 5rem;
+    margin-top: 4rem;
+    text-align: center;
+    transition: color 0.3s ease; /* Transição suave na cor do texto */
+}
+
+/* Mude a cor do texto quando o hover é feito na .heart */
+.heart:hover ~ .ily {
+    color: #ff0239; /* Cor desejada para o texto */
+}
