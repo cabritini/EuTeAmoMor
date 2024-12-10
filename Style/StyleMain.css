@@ -1,14 +1,14 @@
 @font-face {
     font-family: "Sf-Pro-Display";
-    src: url(Fontes/SF-Pro-Display-Regular.otf);
+    src: url(/Fontes/SF-Pro-Display-Regular.otf);
 }
 @font-face {
     font-family: "FonteEscritaAlex";
-    src: url(Fontes/AlexBrush-Regular.ttf);
+    src: url(/Fontes/AlexBrush-Regular.ttf);
 }
 @font-face {
     font-family: "Allura";
-    src: url(Fontes/Allura-Regular.ttf);
+    src: url(/Fontes/Allura-Regular.ttf);
 }
 
 body {

@@ -1,32 +1,145 @@
-.PolaroidObj{
-    background: #fff;
-    padding: 0.5rem; /* Reduzi o padding para aumentar a área da imagem */
-    box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
 
-  }
-  .Imagem {
-    width: 95%;
-    height: 95%;
-    display: block; /* Garante que a imagem não tenha espaço abaixo dela */
-    margin: auto;
-    margin-top: 0.75rem;
-  }
-  .AlbumCaption {
-    font-size: 24px;
-  }
-  
-  .PolaroidObj:nth-of-type(1) {
-    transform: rotate(-10deg);
-    z-index: 1;
-    width: 200px;
-  }
-  
-  .figure:nth-of-type(2) {
-    transform: rotate(15deg);
-    z-index: 2;
-  }
-  #background figure:hover {
-    box-shadow: 5px 10px 100px black;
-    transform: scale(1.1,1.1);
-    z-index: 20;
-  }
+.ItemObj {
+  background: #fff;
+  box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.2);
+  position: absolute; /* Define como absoluto para personalizar a posição */
+  display: flex; /* Torna o contêiner flexível */
+  justify-content: center; /* Centraliza a imagem horizontalmente */
+  align-items: center; /* Centraliza a imagem verticalmente */
+  padding: 10px;
+  transition: all 0.3s ease-in-out 0.1s;
+  z-index: 1; /* Garante que os itens padrão tenham um índice menor */
+}
+
+.PolaroidObj {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: auto;
+}
+
+.PolaroidObj > img {
+  max-width: 100%;
+  height: auto;
+}
+
+.AlbumCaption {
+  text-align: center;
+}
+
+.ItemObj:hover {
+  transform: scale(1.1) rotate(0deg) !important;
+  z-index: 999 !important;
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.carousel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+
+.carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+}
+
+.carousel-item img {
+  width: 100%;  /* Ajusta a imagem para a largura do carrossel */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+
+.close-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn:hover {
+  background-color: #f00;
+  color: #fff;
+}
+
+/*----------- Polaroids -------------- */
+.ItemObj:nth-of-type(1) {
+  transform: rotate(-10deg);
+  z-index: 4;
+  width: 10rem;
+  top: 5rem; /* Define a posição vertical */
+  left: 10rem; /* Define a posição horizontal */
+  font-size: 1.5rem;
+}
+
+.ItemObj:nth-of-type(2) {
+  transform: rotate(15deg);
+  z-index: 3;
+  width: 10rem;
+  top: 8rem; /* Ajusta a posição */
+  left: 3rem;
+  font-size: 1.5rem;
+}
+
+.ItemObj:nth-of-type(3) {
+  transform: rotate(15deg);
+  z-index: 2;
+  width: 10rem;
+  top: 17rem; /* Ajusta a posição */
+  left: 3rem;
+  font-size: 1rem;
+}
+
+.ItemObj:nth-of-type(4) {
+  transform: rotate(-23deg);
+  z-index: 1;
+  width: 10rem;
+  top: 15rem; /* Ajusta a posição */
+  left: 10rem;
+  font-size: 1.5rem;
+}
+
+/*------------ Botão -------------------- */
+
+.back-to-index {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  position: fixed; /* Fixa o botão no topo da tela */
+  top: 20px; /* Define a distância do topo */
+  left: 50%; /* Centraliza o botão horizontalmente */
+  transform: translateX(-50%); /* Ajusta para o centro exato */
+  padding: 10px 20px; /* Define o tamanho do botão */
+  font-size: 16px; /* Tamanho da fonte */
+  background-color: white; /* Cor de fundo */
+  color: #1d1d1f; /* Cor da fonte */
+  border: none; /* Remove borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Altera o cursor para indicar um link */
+  z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.back-to-index:hover {
+  background-color: #ff0239; /* Cor de fundo ao passar o mouse */
+  transition: all 0.3s ease-in-out 0.1s;
+  color: #f5f5f7;
+}
